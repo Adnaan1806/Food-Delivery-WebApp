@@ -19,7 +19,7 @@ const [showLogin,setShowLogin] = useState(false)
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/cart' element={<Cart/>}/>
-        <Route path='/cart' element={<PlaceOrder/>}/>
+        <Route path='/order' element={<PlaceOrder/>}/>
       </Routes>
     </div>
     <Footer/>
