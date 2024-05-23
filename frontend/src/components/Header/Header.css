@@ -45,3 +45,21 @@
     background-color: rgb(220, 218, 218);
     color: #616161;
 }
+
+@media (max-width: 1050px) {
+    .header-contents{
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 750px) {
+    .header-contents{
+        max-width: 65%;
+    }
+    .header-contents p{
+        display: none;
+    }
+    .header-contents button{
+        padding: 2vw 4vw;
+    }
+}
