@@ -3,6 +3,8 @@ import "./LoginPopup.css";
 import { assets } from "../../assets/assets";
 import { StoreContext } from "../../context/StoreContext";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginPopup = ({ setShowLogin }) => {
   const { url, setToken } = useContext(StoreContext);
@@ -11,7 +13,7 @@ const LoginPopup = ({ setShowLogin }) => {
   const [data, setData] = useState({
     name: "",
     email: "",
-    password: ""
+    password: "",
   });
 
   const onChangeHandler = (event) => {
@@ -35,10 +37,15 @@ const LoginPopup = ({ setShowLogin }) => {
       setToken(response.data.token);
       localStorage.setItem("token", response.data.token);
       setShowLogin(false);
+      if (currState === "Login") {
+        toast.success("Login successful!");
+      } else {
+        toast.success("Registration successful!");
+      }
     } else {
-      alert(response.data.message);
+      toast.error(response.data.message);
     }
-  }
+  };
 
   return (
     <div className="login-popup">
